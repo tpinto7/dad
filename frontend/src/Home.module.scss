@@ -1,0 +1,47 @@
+.home { 
+    background-image: url(./images/dadInGumbo.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vmin;
+    width: auto;
+    text-align: center;
+}
+
+.homeNav { 
+    // float: right;
+}
+
+.homeContent {
+    position: relative;
+    width: 50%;
+
+    text-align: center;
+    color: white;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.homeTitle {
+    color: white;
+    font-size: 100px;
+    margin-bottom: 0px;
+}
+
+.homeTypeIt { 
+    font-size: 40px;
+    margin-bottom: 20rem;
+}
+
+.homeArrow { 
+    color: white;
+    font-size: 64px; 
+    // color: 'white', 
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    // m: 'translate(-50%, -50%)',
+    transform: translate(-50%, -50%);
+}

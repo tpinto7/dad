@@ -1,25 +1,28 @@
 import React from 'react';
 import logo from './logo.svg';
+import { Routes, Route } from "react-router-dom";
+
+import { Home } from "./Home";
+import { Photos } from "./Photos";
+import { Messages } from './Messages';
+import { Memories } from './Memories';
+
 import './App.css';
+
+const PageNotFound = () => <div>
+  Something went wrong
+  </div>;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home/>} />
+      <Route path="/photos" element={<Photos  />} />
+      <Route path="/messages" element={<Messages  />} />
+      <Route path="/memories" element={<Memories  />} />
+
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
   );
 }
 
