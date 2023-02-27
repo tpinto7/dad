@@ -1,11 +1,8 @@
-// import IResumeService from '../interfaces/resumeService';
 import IMessagesService, { Message } from '../interfaces/messagesService';
 import { db } from '../../firebase';
-// import { FieldValue } from 'firebase-admin/firestore';
 
 import {
     MESSAGES_COLLECTION,
-    PICTURES_COLLECTION
 } from '../../constants';
 
 

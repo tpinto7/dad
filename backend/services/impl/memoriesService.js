@@ -10,35 +10,39 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const firebase_1 = require("../../firebase");
+// import { FieldValue } from 'firebase-admin/firestore';
 const constants_1 = require("../../constants");
-class MessagesService {
-    uploadMessage(message, creator) {
+class MemoriesService {
+    uploadMemory(memory) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("uploading message");
-            firebase_1.db.collection(constants_1.MESSAGES_COLLECTION).add({
-                message,
+            console.log("uploading memory");
+            const { title, description, creator } = memory;
+            firebase_1.db.collection(constants_1.MEMORIES_COLLECTION).add({
+                title,
                 creator,
+                description,
                 comments: [],
             });
-            return message;
+            return memory;
         });
     }
-    getMessages() {
+    getMemories() {
         return __awaiter(this, void 0, void 0, function* () {
-            const messagesRef = yield firebase_1.db.collection(constants_1.MESSAGES_COLLECTION).get();
-            const messages = [];
-            messagesRef.forEach((message) => {
-                console.log(message);
-                const messageData = message.data();
-                messages.push({
-                    creator: messageData.creator,
-                    message: messageData.message
+            const memoriesRef = yield firebase_1.db.collection(constants_1.MEMORIES_COLLECTION).get();
+            const memories = [];
+            memoriesRef.forEach((memory) => {
+                console.log(memory);
+                const memoriesData = memory.data();
+                memories.push({
+                    creator: memoriesData.creator,
+                    title: memoriesData.title,
+                    description: memoriesData.description,
                 });
             });
             return new Promise((resolve, reject) => {
-                resolve(messages);
+                resolve(memories);
             });
         });
     }
 }
-exports.default = MessagesService;
+exports.default = MemoriesService;

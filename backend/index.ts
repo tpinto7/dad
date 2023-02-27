@@ -8,6 +8,7 @@ import picturesRouter from './routes/pictures';
 import IMessagesService from './services/interfaces/messagesService';
 import MessagesService from './services/impl/messagesService';
 import messagesRouter from './routes/messages';
+import memoriesRouter from './routes/memories';
 // const messagesService: IMessagesService = new MessagesService();
 
 dotenv.config();
@@ -30,12 +31,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/pictures', picturesRouter);
 app.use('/messages', messagesRouter);
-// app.use('/profile', validateToken, profileRouter);
-// app.use('/play', validateToken, playRouter);
+app.use('/memories', memoriesRouter);
 
-// app.post('/message', (req: Request, res: Response) => { 
-//     messagesService.uploadMessage(req.message)
-// });
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Express + TypeScript Server');
