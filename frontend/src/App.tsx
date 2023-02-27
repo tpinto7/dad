@@ -8,6 +8,7 @@ import { Messages } from './Messages';
 import { Memories } from './Memories';
 
 import './App.css';
+import { Header } from './Header';
 
 const PageNotFound = () => <div>
   Something went wrong
@@ -15,14 +16,17 @@ const PageNotFound = () => <div>
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path="/photos" element={<Photos  />} />
-      <Route path="/messages" element={<Messages  />} />
-      <Route path="/memories" element={<Memories  />} />
+    <>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/photos" element={<Photos  />} />
+        <Route path="/messages" element={<Messages  />} />
+        <Route path="/memories" element={<Memories  />} />
 
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </>
   );
 }
 

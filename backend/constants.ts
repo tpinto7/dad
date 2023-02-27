@@ -1,0 +1,7 @@
+const PICTURES_COLLECTION = 'pictures';
+const MESSAGES_COLLECTION = 'messages';
+
+export { 
+    PICTURES_COLLECTION,
+    MESSAGES_COLLECTION,
+}

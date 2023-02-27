@@ -6,10 +6,15 @@ import TypeIt from "typeit-react";
 import profile from './images/profileIcon.jpg';
 import { Animated } from 'react-animated-css';
 import background from "./images/dadInGumbo.jpeg";
+import ReactWordcloud from "react-wordcloud";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import classnames from "classnames";
 import css from "./Home.module.scss";
-
+// function getRandomColor() {
+//     const color = "hsl(" + Math.random() * 360 + ", 100%, 75%)";
+//     return color;
+//   }
 const arrowStyle = {
     fontSize: '64px', 
     color: 'white', 
@@ -20,29 +25,66 @@ const arrowStyle = {
     transform: 'translate(-50%, -50%)'
 }
 
+const words = [
+  {
+    text: 'Ryan',
+    value: 256, 
+  },
+  {
+    text: 'Jen',
+    value: 256, 
+  },
+  {
+    text: 'Tyler',
+    value: 256, 
+  },
+  {
+    text: 'Caitlyn',
+    value: 256, 
+  },
+  {
+    text: 'Maureen',
+    value: 256, 
+  },
+  {
+    text: 'Joanne',
+    value: 256, 
+  },
+  {
+    text: 'Rafi',
+    value: 256, 
+  },
+  {
+    text: 'Rhea',
+    value: 256, 
+  },
+  {
+    text: 'Frankie',
+    value: 256, 
+  },
+  {
+    text: 'Megan',
+    value: 256, 
+  },
+  {
+    text: 'Savio',
+    value: 256, 
+  },
+  {
+    text: 'Ali',
+    value: 256, 
+  },
+  {
+    text: 'Hailey',
+    value: 256, 
+  },
+]
+
 export const Home: React.FC = () => { 
     return (
+      <>
         <div className={classnames(css.home)} style={{ backgroundImage: `url(${background})`}}>
-        <div className={classnames(css.homeNav)}>
-          <nav><Menu theme="dark" mode="horizontal">
-            <Menu.Item
-              key="home">
-                Home
-            </Menu.Item>
-            <Menu.Item
-              key="photos">
-                Photos
-            </Menu.Item>
-            <Menu.Item key="memories">
-                Memories
-            </Menu.Item>
-            <Menu.Item key="messages">
-                Messages
-            </Menu.Item>
-          </Menu>
-          </nav>
-
-        </div>
+       
         <div className={classnames(css.homeContent)}>
           {/* <Animated animationIn="bounceInDown" animationInDelay={1000}> */}
             <h1 className={classnames(css.homeTitle)}>A Celebration of Neil</h1>
@@ -50,14 +92,14 @@ export const Home: React.FC = () => {
           <TypeIt
             className={classnames(css.homeTypeIt)}
             options={{
-              strings: ["Proud father", "Loving husband", "Soccer star", "Boxer advocate", ],
+              strings: ["Proud father", "Loving husband", "Soccer star", "Boxer advocate", "Legendary storyteller"],
               speed: 75,
               nextStringDelay: 1500,
               loopDelay: 50,
               loop: true,
               waitUntilVisible: true,
               breakLines: false,
-            //   beforeString: function(step, instance) {
+            //   beforeString: function(step: any, instance: any) {
             //     instance.getElement().style.color = getRandomColor();
             //   }
             }}
@@ -68,5 +110,7 @@ export const Home: React.FC = () => {
           <DownCircleOutlined/>
         </div>
       </div>
+      <ReactWordcloud words={words}/> 
+      </>
     ); 
 }
