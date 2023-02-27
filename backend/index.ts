@@ -14,7 +14,8 @@ dotenv.config();
 
 const CORS_ALLOW_LIST = [
     'http://localhost:3000', // Local development
-    'https://uwrizzu.me' // TODO: replace
+    'http://localhost:3001', // Local development
+    'https://replace.me' // TODO: replace
 ];
 
 const CORS_OPTIONS: cors.CorsOptions = {

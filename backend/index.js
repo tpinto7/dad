@@ -12,7 +12,8 @@ const messages_1 = __importDefault(require("./routes/messages"));
 dotenv_1.default.config();
 const CORS_ALLOW_LIST = [
     'http://localhost:3000',
-    'https://uwrizzu.me' // TODO: replace
+    'http://localhost:3001',
+    'https://replace.me' // TODO: replace
 ];
 const CORS_OPTIONS = {
     origin: CORS_ALLOW_LIST,

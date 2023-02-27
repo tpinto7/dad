@@ -14,7 +14,8 @@ const fileStorageService: IFileStorageService = new FileStorageService();
 class PicturesService implements IPicturesService {
     async uploadPicture(path: string, contentType: string): Promise<string> {
         console.log("uploading picture");
-        const [pictureFileID, pictureUrl] =
+        console.log(path);
+        const [pictureFileID, pictureUrl, dimension] =
         await fileStorageService.createFile(path, contentType);
 
         db.collection(PICTURES_COLLECTION).add({
@@ -34,6 +35,7 @@ class PicturesService implements IPicturesService {
             pictures.push({
                 creator: pictureData.creator,
                 pictureUrl: pictureData.pictureUrl,
+
             })
         }
         )
