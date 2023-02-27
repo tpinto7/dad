@@ -1,9 +1,11 @@
 import React, { Children, LegacyRef, useCallback, useEffect, useState } from "react";
 import classnames from "classnames";
 import { fetchRequest } from "./Fetch";
+import { UploadOutlined } from '@ant-design/icons';
+import { Button, Upload, UploadProps } from "antd";
 import { Divider } from "rc-menu";
 import 'photoswipe/dist/photoswipe.css'
-
+import css from "./Photos.module.scss";
 import { Gallery, Item } from 'react-photoswipe-gallery'
 
 
@@ -55,33 +57,46 @@ export const Photos: React.FC = () => {
     }, []);
 
     const onImageLoad = (input: any, index: number ) => {
-        // console.log(img.offsetHeight);
-        console.log("inside image load");
-        // console.log(input.target);
-        console.log(input.target.offsetHeight)
+
         const cRatios = ratios; 
         cRatios[index] = 3200 * input.target.offsetWidth / input.target.offsetHeight;
-        console.log(index);
-        console.log(cRatios[index])
         
         // height = input.target
         // console.log(img.offsetWidth);
+    }
+    const uploadPhotoRequest = async (options: any) => { 
+        const { file } = options; 
+        const data = new FormData(); 
+        data.append('file', file);
+        fetchRequest(
+            "/pictures",
+            data,
+            "POST",
+            () => { 
+                getPhotos()
+            }
+        );
+    }
+
+    const uploadProps: UploadProps = { 
+        accept: ".jpg,.png",
+        showUploadList: false, 
+        customRequest: uploadPhotoRequest
     }
 
 
 
     return <>
-        Photos
+        <div className={classnames(css.photoHeader)} > 
+            Photo Gallery 
+            <div className={classnames(css.uploadButton)}>
+                <Upload {...uploadProps}>
+                <Button icon={<UploadOutlined />}> Add Photo </Button>
+            </Upload>
+            </div>
+        </div>
         {loading ? <div> Loading ... </div> : 
         <Gallery>
-            <div
-                style={{
-                display: 'grid',
-                gridTemplateColumns: '240px 171px 171px',
-                gridTemplateRows: '114px 114px',
-                gridGap: 12,
-                }}
-            ></div>
             {photos.map((image, index) => {
                 return <Item height={3200} original={buildUrl(image.pictureUrl)}>
                     {({ ref, open }) => (
@@ -91,13 +106,5 @@ export const Photos: React.FC = () => {
             })}
         </Gallery>
         }
-        {photosRendered()}
-        
-        {photos.map((photo) => {
-            <div> 
-                Hi
-            <img src="https://firebasestorage.googleapis.com/v0/b/celebrating-dad-80058.appspot.com/o/0705556f0e3a6b9d4860b99c7ab5076e?alt=media" />
-            </div>
-        })}
     </>; 
 }
