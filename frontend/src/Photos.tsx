@@ -12,7 +12,7 @@ import { Gallery, Item } from 'react-photoswipe-gallery'
 export type Photo = { 
     creator: string, 
     pictureUrl: string,
-}
+};
 
 export const Photos: React.FC = () => { 
     const [loading, setLoading] = useState<boolean>(true);
@@ -24,10 +24,6 @@ export const Photos: React.FC = () => {
             null, 
             "GET",
             (data: any) => {
-                console.log(photos);
-                data.pictures.map((picture: any) => { 
-                    console.log(picture.pictureUrl.offsetHeight)
-                })
                 setPhotos(data.pictures)
                 setRatios(new Array(data.pictures.length).fill(1));
 
@@ -53,7 +49,6 @@ export const Photos: React.FC = () => {
 
     useEffect(() => { 
         getPhotos();
-
     }, []);
 
     const onImageLoad = (input: any, index: number ) => {
@@ -100,7 +95,7 @@ export const Photos: React.FC = () => {
             {photos.map((image, index) => {
                 return <Item height={3200} original={buildUrl(image.pictureUrl)}>
                     {({ ref, open }) => (
-                    <img style={{height: 220, marginRight: 2, width: 'null'}} onLoad={(input) => onImageLoad(input, index)} ref={ref as React.MutableRefObject<HTMLImageElement>} onClick={open} src={buildUrl(image.pictureUrl)}/>
+                    <img style={{cursor: 'pointer', objectFit: 'cover', height: 220, marginRight: 2, width: 'null'}} onLoad={(input) => onImageLoad(input, index)} ref={ref as React.MutableRefObject<HTMLImageElement>} onClick={open} src={buildUrl(image.pictureUrl)}/>
                 )}
                 </Item>
             })}

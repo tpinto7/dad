@@ -27,3 +27,30 @@ export const fetchRequest = (
         });
 
 }
+
+export async function fetchWithBodyParams(
+    endPoint: string,
+    body: any,
+    method: "POST" | "GET",
+    onSuccess: any,
+    onError?: any,
+) {
+
+    fetch(API_HOST + endPoint, {
+            method: method,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+        })
+        .then((response) => response.text())
+        .then((rawResponse) => {
+            var rawData = JSON.parse(rawResponse);
+            onSuccess(rawData);
+        })
+        .catch((error) => {
+            if(onError != null) { 
+                onError(error);
+            }
+        });
+}
