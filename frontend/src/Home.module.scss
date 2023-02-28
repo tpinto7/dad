@@ -39,12 +39,12 @@
 .homeArrow { 
     color: white;
     font-size: 10px; 
-    // color: 'white', 
     position: absolute;
     top: 90%;
     left: 50%;
-    // m: 'translate(-50%, -50%)',
     transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 .homeContent { 

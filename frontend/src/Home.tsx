@@ -5,7 +5,7 @@ import TypeIt from "typeit-react";
 // import Icons from '../components/Icons';
 import scrollDown from './images/scrolldown.gif';
 import { Animated } from 'react-animated-css';
-import grad from "./images/grad.jpg";
+import wedding from "./images/wedding.jpeg";
 import ReactWordcloud from "react-wordcloud";
 import { Navigate, useNavigate } from "react-router-dom";
 
@@ -42,7 +42,14 @@ const callbacks = {
 export const Home: React.FC = () => { 
   const [names, setNames] = useState<Name[]>([]);
   const [visible, setVisible] = useState<boolean>(false);
-
+  const scrollTo = (id: string) => {
+    const elmnt = document.getElementById(id);
+    if (elmnt != null) { 
+      elmnt.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  }
   const getNames = async () => { 
       await fetchRequest(
           "/names",
@@ -99,14 +106,13 @@ export const Home: React.FC = () => {
 
         </div>        
         <div className={classnames(css.homeArrow)}> 
-          <img src={scrollDown} width="50%"/>
-          {/* <DownCircleOutlined/> */}
+          <img src={scrollDown} onClick={() => scrollTo("homeIntro")} width="50%"/>
         </div>
       </div>
       {/* <div className={classnames(css.homeContent)}>  */}
-      <div className={classnames(css.homeContent)}>
+      <div className={classnames(css.homeContent)} id="homeIntro">
         <div className={classnames(css.intro)}>
-          <img src={grad} height={400} />
+          <img src={wedding} height={400} />
           
           <div className={classnames(css.introText)}>
             <div className={classnames(css.introTextTitle)}> 

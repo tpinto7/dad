@@ -74,7 +74,7 @@ export const Photos: React.FC = () => {
     }
 
     const uploadProps: UploadProps = { 
-        accept: ".jpg,.png",
+        accept: ".jpg,.png,.jpeg",
         showUploadList: false, 
         customRequest: uploadPhotoRequest
     }
