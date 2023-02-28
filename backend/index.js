@@ -9,6 +9,7 @@ const express_1 = __importDefault(require("express"));
 const pictures_1 = __importDefault(require("./routes/pictures"));
 const messages_1 = __importDefault(require("./routes/messages"));
 const memories_1 = __importDefault(require("./routes/memories"));
+const names_1 = __importDefault(require("./routes/names"));
 // const messagesService: IMessagesService = new MessagesService();
 dotenv_1.default.config();
 const CORS_ALLOW_LIST = [
@@ -27,6 +28,7 @@ app.use(express_1.default.urlencoded({ extended: true }));
 app.use('/pictures', pictures_1.default);
 app.use('/messages', messages_1.default);
 app.use('/memories', memories_1.default);
+app.use('/names', names_1.default);
 app.get('/', (req, res) => {
     res.send('Express + TypeScript Server');
 });

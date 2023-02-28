@@ -9,6 +9,7 @@ import IMessagesService from './services/interfaces/messagesService';
 import MessagesService from './services/impl/messagesService';
 import messagesRouter from './routes/messages';
 import memoriesRouter from './routes/memories';
+import namesRouter from './routes/names';
 // const messagesService: IMessagesService = new MessagesService();
 
 dotenv.config();
@@ -32,6 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/pictures', picturesRouter);
 app.use('/messages', messagesRouter);
 app.use('/memories', memoriesRouter);
+app.use('/names', namesRouter);
 
 
 app.get('/', (req: Request, res: Response) => {
