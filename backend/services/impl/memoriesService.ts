@@ -10,7 +10,6 @@ import {
 
 class MemoriesService implements IMemoriesService {
     async uploadMemory(memory: Memory): Promise<Memory> {
-        console.log("uploading memory");
         const { title, description, creator } = memory; 
         db.collection(MEMORIES_COLLECTION).add({
             title,
@@ -26,7 +25,6 @@ class MemoriesService implements IMemoriesService {
         const memories : Memory[] = []; 
 
         memoriesRef.forEach((memory: any) => {
-            console.log(memory);
             const memoriesData = memory.data();
             memories.push({
                 creator: memoriesData.creator,

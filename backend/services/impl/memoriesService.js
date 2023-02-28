@@ -15,7 +15,6 @@ const constants_1 = require("../../constants");
 class MemoriesService {
     uploadMemory(memory) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("uploading memory");
             const { title, description, creator } = memory;
             firebase_1.db.collection(constants_1.MEMORIES_COLLECTION).add({
                 title,
@@ -31,7 +30,6 @@ class MemoriesService {
             const memoriesRef = yield firebase_1.db.collection(constants_1.MEMORIES_COLLECTION).get();
             const memories = [];
             memoriesRef.forEach((memory) => {
-                console.log(memory);
                 const memoriesData = memory.data();
                 memories.push({
                     creator: memoriesData.creator,

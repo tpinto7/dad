@@ -8,8 +8,6 @@ import {
 
 class MessagesService implements IMessagesService {
     async uploadMessage(message: string, creator: string): Promise<string> {
-        console.log("uploading message");
-
         db.collection(MESSAGES_COLLECTION).add({
             message,
             creator,
@@ -23,7 +21,6 @@ class MessagesService implements IMessagesService {
         const messages : Message[] = []; 
 
         messagesRef.forEach((message: any) => {
-            console.log(message);
             const messageData = message.data();
             messages.push({
                 creator: messageData.creator,

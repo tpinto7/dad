@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classnames from "classnames";
-import { UploadOutlined } from '@ant-design/icons';
+import { EditOutlined } from '@ant-design/icons';
 import css from "./Memories.module.scss";
 
 import { Button, Collapse, Upload, UploadProps } from "antd";
@@ -42,7 +42,7 @@ export const Memories: React.FC = () => {
         <div className={classnames(css.memoriesHeader)} > 
            Memories
             <div className={classnames(css.uploadButton)}>
-                <Button onClick={() => setVisible(true)} icon={<UploadOutlined />}> Add Memories </Button>
+                <Button onClick={() => setVisible(true)} icon={<EditOutlined />}> Add Memory </Button>
             </div>
         </div>
         <Collapse>

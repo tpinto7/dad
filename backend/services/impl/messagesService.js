@@ -14,7 +14,6 @@ const constants_1 = require("../../constants");
 class MessagesService {
     uploadMessage(message, creator) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("uploading message");
             firebase_1.db.collection(constants_1.MESSAGES_COLLECTION).add({
                 message,
                 creator,
@@ -28,7 +27,6 @@ class MessagesService {
             const messagesRef = yield firebase_1.db.collection(constants_1.MESSAGES_COLLECTION).get();
             const messages = [];
             messagesRef.forEach((message) => {
-                console.log(message);
                 const messageData = message.data();
                 messages.push({
                     creator: messageData.creator,

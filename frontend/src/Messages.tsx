@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classnames from "classnames";
-import { UploadOutlined } from '@ant-design/icons';
+import { EditOutlined } from '@ant-design/icons';
 import css from "./Messages.module.scss";
 
 import { Button, Card, Col, Row, Space, Upload, UploadProps } from "antd";
@@ -42,7 +42,7 @@ export const Messages: React.FC = () => {
         <div className={classnames(css.messagesHeader)} > 
            Messages
             <div className={classnames(css.uploadButton)}>
-                <Button onClick={() => setVisible(true)} icon={<UploadOutlined />}> Add Message </Button>
+                <Button onClick={() => setVisible(true)} icon={<EditOutlined />}> Add Message </Button>
             </div>
         </div>
         <div style={{display: "grid"}}> 
