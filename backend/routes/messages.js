@@ -18,11 +18,11 @@ const http_status_codes_1 = require("http-status-codes");
 const messagesRouter = (0, express_1.Router)();
 const messagesService = new messagesService_1.default();
 messagesRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { message } = req.body;
+    const { message, creator } = req.body;
     if (!message) {
         throw Error('Message not provided.');
     }
-    yield messagesService.uploadMessage(message, "Anonymous");
+    yield messagesService.uploadMessage(message, creator, creator !== null && creator !== void 0 ? creator : "Anonymous");
     res.status(http_status_codes_1.StatusCodes.CREATED).json({
         msg: 'Message successfully uploaded.',
         message

@@ -12,14 +12,14 @@ const messagesService: IMessagesService = new MessagesService();
 messagesRouter.post(
     '/',
     async (req, res) => {
-            const { message } = req.body;
+            const { message, creator } = req.body;
             if (!message) {
                 throw Error('Message not provided.');
             }
             
             await messagesService.uploadMessage(
-                message,
-                "Anonymous"
+                message, 
+                creator: creator ?? "Anonymous"
             );
 
             res.status(StatusCodes.CREATED).json({

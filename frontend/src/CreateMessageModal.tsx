@@ -29,6 +29,7 @@ export const CreateMessageModal: React.FC<CreateMessageModalProps> = (props: Cre
             "POST",
             onOk,
         )
+        form.resetFields();
     }
 
     return (

@@ -92,7 +92,7 @@ export const Home: React.FC = () => {
           <TypeIt
             className={classnames(css.homeTypeIt)}
             options={{
-              strings: ["Proud father", "Loving husband", "Soccer star", "Boxer advocate", "Legendary storyteller"],
+              strings: ["Proud father", "Loving husband", "Soccer star", "Boxer advocate", "Denlow Dad", "BOM -> SFO -> YYZ", "Gym social butterfly", "Legendary storyteller"],
               speed: 75,
               nextStringDelay: 1500,
               loopDelay: 50,

@@ -30,6 +30,7 @@ export const CreateMemoryModal: React.FC<CreateMemoryModalProps> = (props: Creat
             "POST",
             onOk,
         )
+        form.resetFields();
     }
 
     return (

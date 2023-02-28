@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 import { UploadOutlined } from '@ant-design/icons';
 import css from "./Messages.module.scss";
 
-import { Button, Upload, UploadProps } from "antd";
+import { Button, Card, Col, Row, Space, Upload, UploadProps } from "antd";
 import { CreateMessageModal } from "./CreateMessageModal";
 import { fetchRequest } from "./Fetch";
 
@@ -22,9 +22,11 @@ export const Messages: React.FC = () => {
             null, 
             "GET",
             (data: any) => {
+                console.log(data.messages)
                 setMessages(data.messages)
             }
         );
+        
     }
 
     const handleNewMessage = () => { 
@@ -32,6 +34,9 @@ export const Messages: React.FC = () => {
         getMessages();
     }
 
+    useEffect(() => { 
+        getMessages();
+    }, []);
 
     return <>
         <div className={classnames(css.messagesHeader)} > 
@@ -39,6 +44,16 @@ export const Messages: React.FC = () => {
             <div className={classnames(css.uploadButton)}>
                 <Button onClick={() => setVisible(true)} icon={<UploadOutlined />}> Add Message </Button>
             </div>
+        </div>
+        <div style={{display: "grid"}}> 
+        <Row>
+            {messages.map((message, index) => { 
+                return <Col span={8}><Card size="small" style={{width:400, margin: 5}} title={message.creator} key={index}> 
+                    {message.message}
+                    </Card>
+                    </Col>
+            })}
+            </Row>
         </div>
 
         <CreateMessageModal visible={visible} onOk={handleNewMessage} onCancel={() => setVisible(false)}/>
