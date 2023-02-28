@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu, Avatar, Button } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import TypeIt from "typeit-react";
@@ -12,6 +12,8 @@ import { Navigate, useNavigate } from "react-router-dom";
 import classnames from "classnames";
 import css from "./Home.module.scss";
 import { Header } from "./Header";
+import { fetchRequest } from "./Fetch";
+import { AddNameModal } from "./AddNameModal";
 // function getRandomColor() {
 //     const color = "hsl(" + Math.random() * 360 + ", 100%, 75%)";
 //     return color;
@@ -26,64 +28,51 @@ const arrowStyle = {
     transform: 'translate(-50%, -50%)'
 }
 
-const words = [
-  {
-    text: 'Ryan',
-    value: 256, 
-  },
-  {
-    text: 'Jen',
-    value: 256, 
-  },
-  {
-    text: 'Tyler',
-    value: 256, 
-  },
-  {
-    text: 'Caitlyn',
-    value: 256, 
-  },
-  {
-    text: 'Maureen',
-    value: 256, 
-  },
-  {
-    text: 'Joanne',
-    value: 256, 
-  },
-  {
-    text: 'Rafi',
-    value: 256, 
-  },
-  {
-    text: 'Rhea',
-    value: 256, 
-  },
-  {
-    text: 'Frankie',
-    value: 256, 
-  },
-  {
-    text: 'Megan',
-    value: 256, 
-  },
-  {
-    text: 'Savio',
-    value: 256, 
-  },
-  {
-    text: 'Ali',
-    value: 256, 
-  },
-  {
-    text: 'Hailey',
-    value: 256, 
-  },
-]
+export type Name = { 
+  text: string; 
+  value: number;
+}
+
+const callbacks = { 
+  onWordClick: console.log,
+  onWordMouseOver: console.log,
+  getWordTooltip: (word: any) => {},
+}
 
 export const Home: React.FC = () => { 
+  const [names, setNames] = useState<Name[]>([]);
   const [visible, setVisible] = useState<boolean>(false);
-    return (
+
+  const getNames = async () => { 
+      await fetchRequest(
+          "/names",
+          null, 
+          "GET",
+          (data: any) => {
+            const newNames: Name[] = [];
+            data.names.forEach((name: any) => { 
+              newNames.push({
+                text: name.name,
+                value: name.value,
+              });
+            })
+
+              setNames(newNames);
+          }
+      );
+      
+  }
+
+  const handleNewName = () => { 
+      setVisible(false);
+      getNames();
+  }
+
+  useEffect(() => { 
+      getNames();
+  }, []);    
+  
+  return (
       <>
         {/* <Header/>  */}
         <div className={classnames(css.home)} >
@@ -129,10 +118,11 @@ export const Home: React.FC = () => {
             beloved coach and player. We all love you Neil. Please leave a message and share pictures and memories of Neil so we can all celebrate him together.
           </div>
         </div>
-        <div> <Button onClick={() => setVisible(true)} icon={<EditOutlined />}> Add your name </Button> </div>
+        <div className={classnames(css.addButton)}> <Button onClick={() => setVisible(true)} icon={<EditOutlined />}> Add your name </Button> </div>
         <div className={classnames(css.wordcloudWrapper)}>
-          <ReactWordcloud words={words} /> 
+          <ReactWordcloud words={names} callbacks={callbacks}/> 
         </div>
+        <AddNameModal visible={visible} onCancel={() => setVisible(false)} onOk={handleNewName}/>
       </div>
       {/* </div> */}
       </>

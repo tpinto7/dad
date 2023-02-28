@@ -60,6 +60,11 @@
     width: 80%; 
 
     display: flex;
+    padding-bottom: 30px;
+}
+
+.addButton { 
+    padding-bottom: 10px;
 }
 
 .introText { 
@@ -75,6 +80,8 @@
 }
 
 .wordcloudWrapper { 
-
+    width: 400px;
+    height: 400px;
     border: black solid 0.5px;
+    margin-bottom: 30px;
 }

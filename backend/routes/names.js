@@ -38,9 +38,9 @@ namesRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 }));
 namesRouter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const memories = yield namesService.getNames();
+    const names = yield namesService.getNames();
     res.status(http_status_codes_1.StatusCodes.OK).json({
-        memories
+        names
     });
 }));
 exports.default = namesRouter;

@@ -38,10 +38,10 @@ namesRouter.post(
 namesRouter.get(
     '/',
     async (req, res) => { 
-        const memories = await namesService.getNames();
+        const names = await namesService.getNames();
 
         res.status(StatusCodes.OK).json({
-            memories
+            names
         })
     }
 )
