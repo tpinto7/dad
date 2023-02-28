@@ -22,7 +22,7 @@ messagesRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, functio
     if (!message) {
         throw Error('Message not provided.');
     }
-    yield messagesService.uploadMessage(message, creator, creator !== null && creator !== void 0 ? creator : "Anonymous");
+    yield messagesService.uploadMessage(message, creator !== null && creator !== void 0 ? creator : "Anonymous");
     res.status(http_status_codes_1.StatusCodes.CREATED).json({
         msg: 'Message successfully uploaded.',
         message

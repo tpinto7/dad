@@ -15,7 +15,7 @@ dotenv_1.default.config();
 const CORS_ALLOW_LIST = [
     'http://localhost:3000',
     'http://localhost:3001',
-    'https://replace.me' // TODO: replace
+    'https://celebrating-dad.web.app' // TODO: replace
 ];
 const CORS_OPTIONS = {
     origin: CORS_ALLOW_LIST,
@@ -35,6 +35,6 @@ app.get('/', (req, res) => {
 // app.post('/pictures', (req: Request, res: Response) => { 
 //     res.send("Pictures test");
 // })
-app.listen({ port: process.env.PORT || 5000 }, () => {
-    console.info(`Server is listening on port ${process.env.PORT || 5000}!`);
+app.listen({ port: process.env.PORT || 8080 }, () => {
+    console.info(`Server is listening on port ${process.env.PORT || 8080}!`);
 });

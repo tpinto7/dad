@@ -114,7 +114,7 @@ export const Home: React.FC = () => {
             </div>
             Neil Pinto was a family man through and through. He raised three children, Ryan, Tyler and Caitlyn, his pride and joy. He was a caring husband to Jennifer Noronha, their 30th year anniversary 
             upcoming this July. Neil was the life of every party, and lit up every room he was in; he was a man larger than life. Neil was born in Mumbai and spent his summers in Goa, before he moved for
-            school at San Jose and spent the better of seven years in the Bay Area. After meeting Jennifer, he moved to Toronto where he brought up his family. He loved soccer and all sports, and was a
+            his MBA at San Jose and spent the better of seven years in the Bay Area. After meeting Jennifer, he moved to Toronto where he brought up his family and grew a successful business. He loved soccer and all sports, and was a
             beloved coach and player. We all love you Neil. Please leave a message and share pictures and memories of Neil so we can all celebrate him together.
           </div>
         </div>

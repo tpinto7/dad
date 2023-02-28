@@ -1,7 +1,7 @@
 const API_HOST =
     window.location.hostname === "localhost" ?
     "http://localhost:8000" :
-    "https://replace.me";
+    "https://backend-37pycmajnq-ul.a.run.app/";
 
 export const fetchRequest = (
     endpoint: string, 

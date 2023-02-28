@@ -17,7 +17,7 @@ dotenv.config();
 const CORS_ALLOW_LIST = [
     'http://localhost:3000', // Local development
     'http://localhost:3001', // Local development
-    'https://replace.me' // TODO: replace
+    'https://celebrating-dad.web.app' // TODO: replace
 ];
 
 const CORS_OPTIONS: cors.CorsOptions = {
@@ -44,6 +44,6 @@ app.get('/', (req: Request, res: Response) => {
 //     res.send("Pictures test");
 // })
 
-app.listen({ port: process.env.PORT || 5000 }, () => {
-    console.info(`Server is listening on port ${process.env.PORT || 5000}!`);
+app.listen({ port: process.env.PORT || 8080 }, () => {
+    console.info(`Server is listening on port ${process.env.PORT || 8080}!`);
 });

@@ -19,7 +19,7 @@ messagesRouter.post(
             
             await messagesService.uploadMessage(
                 message, 
-                creator: creator ?? "Anonymous"
+                creator ?? "Anonymous",
             );
 
             res.status(StatusCodes.CREATED).json({
