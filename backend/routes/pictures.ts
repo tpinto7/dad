@@ -30,7 +30,6 @@ picturesRouter.post(
         //     console.log(
         //         "hello"
         //     )
-        console.log(req);
             if (!req.file) {
                 throw Error('File not provided.');
             }
@@ -39,7 +38,6 @@ picturesRouter.post(
         //     //     throw Error('File size must be less than 5 MB.');
         //     // }
             
-            console.log(req.file)
             const url = await picturesService.uploadPicture(
                 req.file.path,
                 req.file.mimetype

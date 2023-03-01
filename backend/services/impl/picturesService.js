@@ -21,8 +21,6 @@ const fileStorageService = new fileStorageService_1.default();
 class PicturesService {
     uploadPicture(path, contentType) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("uploading picture");
-            console.log(path);
             const [pictureFileID, pictureUrl, dimension] = yield fileStorageService.createFile(path, contentType);
             firebase_1.db.collection(constants_1.PICTURES_COLLECTION).add({
                 pictureUrl,

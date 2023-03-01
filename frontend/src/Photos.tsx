@@ -56,8 +56,8 @@ export const Photos: React.FC = () => {
         const cRatios = ratios; 
         cRatios[index] = input.target.offsetWidth / input.target.offsetHeight;
         setRatios(cRatios);
-        console.log(cRatios[index]);
-        console.log(index);
+        // console.log(cRatios[index]);
+        // console.log(index);
         // height = input.target
         // console.log(img.offsetWidth);
     }
@@ -83,14 +83,14 @@ export const Photos: React.FC = () => {
 
     const onBeforeChange = (pswpInstance: any) => {
         pswpInstance.on('change', async () => {
-            console.log('slide was changed')
-            console.log(pswpInstance);
-            console.log(pswpInstance.currSlide.data.element.offsetWidth);
-            console.log(pswpInstance.currSlide.data.element.offsetHeight);
+            // console.log('slide was changed')
+            // console.log(pswpInstance);
+            // console.log(pswpInstance.currSlide.data.element.offsetWidth);
+            // console.log(pswpInstance.currSlide.data.element.offsetHeight);
 
             const ratio = pswpInstance.currSlide.data.element.offsetWidth / pswpInstance.currSlide.data.element.offsetHeight;
-            console.log(ratio);
-            console.log(pswpInstance.viewportSize.y * ratio);
+            // console.log(ratio);
+            // console.log(pswpInstance.viewportSize.y * ratio);
             pswpInstance.viewportSize.x = pswpInstance.viewportSize.y * ratio; 
 
             await pswpInstance.updateSize();

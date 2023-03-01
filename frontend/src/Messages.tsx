@@ -22,7 +22,6 @@ export const Messages: React.FC = () => {
             null, 
             "GET",
             (data: any) => {
-                console.log(data.messages)
                 setMessages(data.messages)
             }
         );
@@ -45,14 +44,14 @@ export const Messages: React.FC = () => {
                 <Button onClick={() => setVisible(true)} icon={<EditOutlined />}> Add Message </Button>
             </div>
         </div>
-        <div style={{display: "grid"}}> 
-        <Row>
-            {messages.map((message, index) => { 
-                return <Col span={8}><Card size="small" style={{width:400, margin: 5}} title={message.creator} key={index}> 
-                    {message.message}
-                    </Card>
+        <div className={classnames(css.messagesWrapper)}>
+            <Row>
+                {messages.map((message, index) => { 
+                    return <Col> <Card size="small" style={{width:400, margin: 5}} title={message.creator} key={index}> 
+                        {message.message}
+                        </Card>
                     </Col>
-            })}
+                })}
             </Row>
         </div>
 

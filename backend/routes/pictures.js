@@ -36,14 +36,12 @@ picturesRouter.post('/', upload.single('file'),
     //     console.log(
     //         "hello"
     //     )
-    console.log(req);
     if (!req.file) {
         throw Error('File not provided.');
     }
     //     // if (req.file.size > MAX_FILE_SIZE_IN_BYTES) {
     //     //     throw Error('File size must be less than 5 MB.');
     //     // }
-    console.log(req.file);
     const url = yield picturesService.uploadPicture(req.file.path, req.file.mimetype);
     // Multer saves file to disk so we want to delete it there.
     fs_1.default.unlink(req.file.path, (err) => {

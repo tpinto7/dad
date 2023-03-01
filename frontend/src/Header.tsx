@@ -11,20 +11,20 @@ export const Header: React.FC = () => {
 
     return ( <div className={classnames(css.header)}>
       <div className={classnames(css.title)}> Neil Pinto </div>
-      <nav className={classnames(css.navWrapper)} id="nav-header"><Menu defaultSelectedKeys={[window.location.pathname]} mode="horizontal" style={{color: "#fcad03"}}>
+      <nav className={classnames(css.navWrapper)} id="nav-header"><Menu defaultSelectedKeys={[window.location.pathname]} mode="horizontal" style={{color: "#fcad03", borderBottom: "none"}}>
         <Menu.Item key="/messages" onClick={() => navigate("/messages")}>
-            Messages
+            <span className={classnames(css.navWrapperText)}> Messages </span>
         </Menu.Item>
         <Menu.Item key="/memories" onClick={() => navigate("/memories")}>
-            Memories
+        <span className={classnames(css.navWrapperText)}> Memories </span>
         </Menu.Item>
         <Menu.Item
           key="/photos" onClick={() => navigate("/photos")}>
-            Photos
+             <span className={classnames(css.navWrapperText)}> Photos </span>
         </Menu.Item>
         <Menu.Item
           key="/" onClick={() => navigate("/")}>
-            Home
+             <span className={classnames(css.navWrapperText)}> Home </span>
         </Menu.Item>
       </Menu>
       </nav>

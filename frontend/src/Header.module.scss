@@ -1,5 +1,6 @@
 .header { 
     display: flex;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .title { 
@@ -16,3 +17,15 @@
     direction: rtl;
     // margin-right: 0;
 }
+
+@media all and (min-width:0px) and (max-width: 640px) {
+    .title { 
+        font-size: 16px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    .navWrapperText { 
+        font-size: 12px;
+    }
+  }

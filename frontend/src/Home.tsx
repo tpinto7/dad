@@ -114,7 +114,7 @@ export const Home: React.FC = () => {
       {/* <div className={classnames(css.homeContent)}>  */}
       <div className={classnames(css.homeContent)} id="homeIntro">
         <div className={classnames(css.intro)}>
-          <img src={wedding} height={400} />
+          <img src={wedding} className={classnames(css.homeImage)} />
           
           <div className={classnames(css.introText)}>
             <div className={classnames(css.introTextTitle)}> 

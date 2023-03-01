@@ -85,3 +85,55 @@
     border: black solid 0.5px;
     margin-bottom: 30px;
 }
+
+.homeImage { 
+    height: 400px;
+}
+
+@media all and (min-width:0px) and (max-width: 640px) {
+    .homeTitle {
+        color: white;
+        font-size: 40px;
+        margin-bottom: 0px;
+    }
+    
+    .homeTypeIt { 
+        font-size: 20px;
+        margin-bottom: 20rem;
+    }
+
+    .homeArrow { 
+        visibility: hidden;
+    }
+
+    .homeContent { 
+        background-color: #fcfce6;
+        padding-top: 30px;
+        align-items: center;
+        flex-direction: column;
+        display: flex;
+        text-align: center;
+    }
+
+    .intro { 
+        width: 80%; 
+        display: block;
+        padding-bottom: 20px;
+    }
+
+    .homeImage { 
+        height: 250px;
+    }
+
+    .introText { 
+        margin-left: 20px;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 14px;
+    }
+
+    .introTextTitle { 
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+  }

@@ -13,8 +13,6 @@ const fileStorageService: IFileStorageService = new FileStorageService();
 
 class PicturesService implements IPicturesService {
     async uploadPicture(path: string, contentType: string): Promise<string> {
-        console.log("uploading picture");
-        console.log(path);
         const [pictureFileID, pictureUrl, dimension] =
         await fileStorageService.createFile(path, contentType);
 

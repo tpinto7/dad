@@ -12,3 +12,12 @@
     margin-left: auto;
 }
 
+.messagesWrapper { 
+    display: grid;
+}
+
+@media all and (min-width:0px) and (max-width: 640px) {
+    .messagesWrapper { 
+        display: block;
+    }
+}
