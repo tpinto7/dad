@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Menu, Layout, Button } from 'antd';
-import { EditOutlined } from '@ant-design/icons';
+import { Menu, Layout, Button, Col, Row } from 'antd';
+import { EditOutlined, HeartOutlined } from '@ant-design/icons';
 import TypeIt from "typeit-react";
 // import Icons from '../components/Icons';
 import scrollDown from './images/scrolldown.gif';
@@ -124,6 +124,15 @@ export const Home: React.FC = () => {
             upcoming this July. Neil was the life of every party, and lit up every room he was in; he was a man larger than life. Neil was born in Mumbai and spent his summers in Goa, before he moved for
             his MBA at San Jose and spent the better of seven years in the Bay Area. After meeting Jennifer, he moved to Toronto where he brought up his family and grew a successful business. He loved soccer and all sports, and was a
             beloved coach and player. We all love you Neil. Please leave a message and share pictures and memories of Neil so we can all celebrate him together.
+          </div>
+        </div>
+        <div> 
+          <div className={classnames(css.donateText)}>
+            Neil often expressed his love for helping kids in need. Please consider donating to Sick Kids or Covenant House as he did in lieu of flowers or cards.
+          </div>
+          <div className={classnames(css.donateButtonsWrapper)}>
+            <Button className={classnames(css.sickKids)} icon={<HeartOutlined />} href="https://secure.sickkidsfoundation.com/donate?appeal=GEA-DIGT-SKR&utm_source=sickkids.ca&utm_adtype=donatenowlink&utm_medium=referral">Donate to Sick Kids</Button>
+            <Button icon={<HeartOutlined />} href="https://secure.covenanthouse.ca/page/47922/donate/1/?transaction.recurrpay=N&_ga=2.257452555.18835442.1677695710-1721505139.1677695710">Donate to Covenant House</Button>
           </div>
         </div>
         <div className={classnames(css.addButton)}> <Button onClick={() => setVisible(true)} icon={<EditOutlined />}> Add your name </Button> </div>

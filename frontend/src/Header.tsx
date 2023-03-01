@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
     const navigate = useNavigate();
 
     return ( <div className={classnames(css.header)}>
-      <div className={classnames(css.title)}> Neil Pinto </div>
+      <div className={classnames(css.title)}> <span className={classnames(css.titleText)} onClick={() => navigate("/")}>Neil Pinto</span> </div>
       <nav className={classnames(css.navWrapper)} id="nav-header"><Menu defaultSelectedKeys={[window.location.pathname]} mode="horizontal" style={{color: "#fcad03", borderBottom: "none"}}>
         <Menu.Item key="/messages" onClick={() => navigate("/messages")}>
             <span className={classnames(css.navWrapperText)}> Messages </span>
