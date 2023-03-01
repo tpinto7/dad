@@ -36,7 +36,6 @@ export const CreateMessageModal: React.FC<CreateMessageModalProps> = (props: Cre
         <Modal
             title="Create Message"
             open={visible}
-            width={"50%"}
             mask={true}
             onCancel={onCancel}
             footer={null}

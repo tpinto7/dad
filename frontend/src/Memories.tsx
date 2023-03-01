@@ -45,6 +45,9 @@ export const Memories: React.FC = () => {
                 <Button onClick={() => setVisible(true)} icon={<EditOutlined />}> Add Memory </Button>
             </div>
         </div>
+        <div className={classnames(css.memoriesSynopsis)}>
+            Feel free to add a memory where Neil inspired you, made you happy, or captured the spirit that he is. 
+        </div> 
         <Collapse>
             {memories.map((memory, index) =>  {
                 return <Panel 

@@ -37,7 +37,6 @@ export const CreateMemoryModal: React.FC<CreateMemoryModalProps> = (props: Creat
         <Modal
             title="Create Memory"
             open={visible}
-            width={"50%"}
             mask={true}
             onCancel={onCancel}
             footer={null}

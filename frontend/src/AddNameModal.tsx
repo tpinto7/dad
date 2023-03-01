@@ -35,7 +35,6 @@ export const AddNameModal: React.FC<AddNameModalProps> = (props: AddNameModalPro
         <Modal
             title="Add Your Name"
             open={visible}
-            width={"50%"}
             mask={true}
             onCancel={onCancel}
             footer={null}
@@ -52,11 +51,8 @@ export const AddNameModal: React.FC<AddNameModalProps> = (props: AddNameModalPro
                     <Input />
                 </Form.Item>
                 <Form.Item {...tailLayout}>
-                    <Button type="primary" htmlType="submit" style={{marginRight: 5}}>
+                    <Button type="primary" htmlType="submit">
                     Submit
-                    </Button>
-                    <Button htmlType="button" onClick={() => form.resetFields()}>
-                    Reset
                     </Button>
                 </Form.Item>
             </Form>
