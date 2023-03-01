@@ -17,7 +17,12 @@ dotenv.config();
 const CORS_ALLOW_LIST = [
     'http://localhost:3000', // Local development
     'http://localhost:3001', // Local development
-    'https://celebrating-dad.web.app' // TODO: replace
+    'https://celebrating-dad.web.app',
+    'https://celebrating-dad-80058.web.app',
+    'https://celebrating-dad.firebaseapp.com',
+    'https://celebrating-dad-80058.firebaseapp.com',
+    'https://celebrationofneil.com',
+    'celebrationofneil.com',
 ];
 
 const CORS_OPTIONS: cors.CorsOptions = {

@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "celebrating-dad"
-  }
+    "default": "celebrating-dad",
+    "prod": "celebrating-dad-80058"
+  },
+  "targets": {}
 }

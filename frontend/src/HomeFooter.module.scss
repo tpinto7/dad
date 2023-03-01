@@ -1,0 +1,28 @@
+.homeFooter { 
+    background-color: #fcfce6;
+    border-top: black solid 0.5px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.footerLinksWrapper { 
+    display: grid;
+}
+
+.linkItemWrapper { 
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.linkItem { 
+    color: black;
+}
+
+.footerTag { 
+    margin-top: 10px;
+    font-size: 12px;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}

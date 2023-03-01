@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Menu, Avatar, Button } from 'antd';
+import { Menu, Layout, Button } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import TypeIt from "typeit-react";
 // import Icons from '../components/Icons';
@@ -14,6 +14,8 @@ import css from "./Home.module.scss";
 import { Header } from "./Header";
 import { fetchRequest } from "./Fetch";
 import { AddNameModal } from "./AddNameModal";
+
+import { HomeFooter } from "./HomeFooter";
 // function getRandomColor() {
 //     const color = "hsl(" + Math.random() * 360 + ", 100%, 75%)";
 //     return color;
@@ -130,6 +132,8 @@ export const Home: React.FC = () => {
         </div>
         <AddNameModal visible={visible} onCancel={() => setVisible(false)} onOk={handleNewName}/>
       </div>
+      <HomeFooter />
+
       {/* </div> */}
       </>
     ); 

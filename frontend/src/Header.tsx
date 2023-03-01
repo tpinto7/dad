@@ -8,7 +8,7 @@ import {  useNavigate } from "react-router-dom";
 export const Header: React.FC = () => { 
     const navigate = useNavigate();
     return ( <div>
-    <nav><Menu theme="dark" mode="horizontal">
+    <nav id="nav-header"><Menu theme="dark" mode="horizontal">
       <Menu.Item
         key="home" onClick={() => navigate("/")}>
           Home
