@@ -54,8 +54,10 @@ export const Photos: React.FC = () => {
     const onImageLoad = (input: any, index: number ) => {
 
         const cRatios = ratios; 
-        cRatios[index] = 3200 * input.target.offsetWidth / input.target.offsetHeight;
-        
+        cRatios[index] = input.target.offsetWidth / input.target.offsetHeight;
+        setRatios(cRatios);
+        console.log(cRatios[index]);
+        console.log(index);
         // height = input.target
         // console.log(img.offsetWidth);
     }
@@ -79,6 +81,22 @@ export const Photos: React.FC = () => {
         customRequest: uploadPhotoRequest
     }
 
+    const onBeforeChange = (pswpInstance: any) => {
+        pswpInstance.on('change', async () => {
+            console.log('slide was changed')
+            console.log(pswpInstance);
+            console.log(pswpInstance.currSlide.data.element.offsetWidth);
+            console.log(pswpInstance.currSlide.data.element.offsetHeight);
+
+            const ratio = pswpInstance.currSlide.data.element.offsetWidth / pswpInstance.currSlide.data.element.offsetHeight;
+            console.log(ratio);
+            console.log(pswpInstance.viewportSize.y * ratio);
+            pswpInstance.viewportSize.x = pswpInstance.viewportSize.y * ratio; 
+
+            await pswpInstance.updateSize();
+          });   
+    }
+
 
 
     return <>
@@ -91,15 +109,18 @@ export const Photos: React.FC = () => {
             </div>
         </div>
         {loading ? <div> Loading ... </div> : 
-        <Gallery>
-            {photos.map((image, index) => {
-                return <Item height={3200} original={buildUrl(image.pictureUrl)}>
-                    {({ ref, open }) => (
-                    <img style={{cursor: 'pointer', objectFit: 'cover', height: 220, marginRight: 2, width: 'null'}} onLoad={(input) => onImageLoad(input, index)} ref={ref as React.MutableRefObject<HTMLImageElement>} onClick={open} src={buildUrl(image.pictureUrl)}/>
-                )}
-                </Item>
-            })}
-        </Gallery>
+        <div className={classnames(css.galleryWrapper)}>
+            <Gallery>
+                {photos.map((image, index) => {
+                    // width
+                    return <Item width={700} height={800} original={buildUrl(image.pictureUrl)}>
+                        {({ ref, open }) => (
+                        <img style={{cursor: 'pointer', objectFit: 'cover', height: 240, marginRight: 2, width: 'null'}} onLoad={(input) => onImageLoad(input, index)} ref={ref as React.MutableRefObject<HTMLImageElement>} onClick={open} src={buildUrl(image.pictureUrl)}/>
+                    )}
+                    </Item>
+                })}
+            </Gallery>
+        </div>
         }
     </>; 
 }
