@@ -1,7 +1,7 @@
 import React, { Children, LegacyRef, useCallback, useEffect, useState } from "react";
 import classnames from "classnames";
 import { fetchRequest } from "./Fetch";
-import { UploadOutlined } from '@ant-design/icons';
+import { LeftOutlined, RightOutlined, UploadOutlined } from "@ant-design/icons";
 import { Button, Carousel, Upload, UploadProps } from "antd";
 // import { Carousel } from "react-responsive-carousel";
 import { Divider } from "rc-menu";
@@ -10,6 +10,7 @@ import css from "./Photos.module.scss";
 import { Gallery, Item } from 'react-photoswipe-gallery'
 import ReactPlayer from "react-player";
 
+import "./Videos.scss";
 
 export type Photo = { 
     creator: string, 
@@ -104,6 +105,7 @@ export const Videos: React.FC = () => {
     }
 
     const isVideoPlaying = React.useCallback((index: number) => { 
+        console.log()
         return index === activeIndex && isPlaying;
     }, [activeIndex, isPlaying]);
 
@@ -119,7 +121,7 @@ export const Videos: React.FC = () => {
             </div>
         </div>
         <div className={classnames(css.galleryWrapper)}>
-            <Carousel beforeChange={() => setIsPlaying(false)} afterChange={(current) => { console.log(current); setActiveIndex(current)} }>
+            <Carousel arrows prevArrow={<LeftOutlined />} nextArrow={<RightOutlined />} beforeChange={(from, to) => setIsPlaying(false)} afterChange={(current) => { console.log(current); setActiveIndex(current)} }>
             {photos.map((image, index) => {
                 // width
                     
