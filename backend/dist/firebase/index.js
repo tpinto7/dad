@@ -8,10 +8,9 @@ exports.db = exports.auth = exports.firebaseApp = void 0;
 const app_1 = require("firebase-admin/app");
 const auth_1 = require("firebase-admin/auth");
 const firestore_1 = require("firebase-admin/firestore");
-// const privateKey = require('./service_account.json');
-const service_account_json_1 = __importDefault(require("./service_account.json"));
+const privateKey_json_1 = __importDefault(require("../privateKey.json"));
 // Initialize Firebase
-const serviceAccount = service_account_json_1.default;
+const serviceAccount = privateKey_json_1.default;
 const firebaseApp = (0, app_1.initializeApp)({
     credential: (0, app_1.cert)(serviceAccount),
     storageBucket: 'celebrating-dad-80058.appspot.com'
