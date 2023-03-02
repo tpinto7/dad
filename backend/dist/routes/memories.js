@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const memoriesService_1 = __importDefault(require("../services/impl/memoriesService"));
 const http_status_codes_1 = require("http-status-codes");
+const constants_1 = require("../constants");
 const memoriesRouter = (0, express_1.Router)();
 const memoriesService = new memoriesService_1.default();
 memoriesRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -22,13 +23,13 @@ memoriesRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, functio
     if (!title || !description) {
         throw Error('memory not provided.');
     }
-    yield memoriesService.uploadMemory({ title, description, creator: creator !== null && creator !== void 0 ? creator : "Anonymous"
+    yield memoriesService.uploadMemory({ title, description, creator: creator !== null && creator !== void 0 ? creator : constants_1.ANONYMOUS
     });
     res.status(http_status_codes_1.StatusCodes.CREATED).json({
         msg: 'memory successfully uploaded.',
         title,
         description,
-        creator: creator !== null && creator !== void 0 ? creator : "Anonymous"
+        creator: creator !== null && creator !== void 0 ? creator : constants_1.ANONYMOUS
     });
 }));
 memoriesRouter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {

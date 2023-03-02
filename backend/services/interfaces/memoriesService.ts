@@ -6,10 +6,10 @@ export interface Memory {
 
 interface IMemoriesService {
     getMemories(): Promise<Memory[]>;
+
     uploadMemory(
         memory: Memory
     ): Promise<Memory>;
-
 }
 
 export default IMemoriesService;

@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const http_status_codes_1 = require("http-status-codes");
 const namesService_1 = __importDefault(require("../services/impl/namesService"));
+const constants_1 = require("../constants");
 const namesRouter = (0, express_1.Router)();
 const namesService = new namesService_1.default();
 namesRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -25,12 +26,12 @@ namesRouter.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         }
         yield namesService.uploadName({
             name,
-            value: value !== null && value !== void 0 ? value : 16
+            value: value !== null && value !== void 0 ? value : constants_1.DEFAULT_WORD_SIZE
         });
         res.status(http_status_codes_1.StatusCodes.CREATED).json({
             msg: 'name successfully uploaded.',
             name,
-            value: value !== null && value !== void 0 ? value : 16
+            value: value !== null && value !== void 0 ? value : constants_1.DEFAULT_WORD_SIZE
         });
     }
     catch (error) {
