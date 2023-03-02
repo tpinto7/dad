@@ -19,6 +19,10 @@ export const Header: React.FC = () => {
         <span className={classnames(css.navWrapperText)}> Memories </span>
         </Menu.Item>
         <Menu.Item
+          key="/videos" onClick={() => navigate("/videos")}>
+             <span className={classnames(css.navWrapperText)}> Videos </span>
+        </Menu.Item>
+        <Menu.Item
           key="/photos" onClick={() => navigate("/photos")}>
              <span className={classnames(css.navWrapperText)}> Photos </span>
         </Menu.Item>

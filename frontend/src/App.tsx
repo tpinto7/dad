@@ -9,6 +9,7 @@ import { Memories } from './Memories';
 
 import './App.css';
 import { Header } from './Header';
+import { Videos } from './Videos';
 
 const PageNotFound = () => <div>
   Something went wrong
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/photos" element={<Photos  />} />
+        <Route path="/videos" element={<Videos  />} />
         <Route path="/messages" element={<Messages  />} />
         <Route path="/memories" element={<Memories  />} />
 

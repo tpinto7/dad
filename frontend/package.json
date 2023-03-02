@@ -18,6 +18,8 @@
     "react-animated-css": "^1.2.1",
     "react-dom": "^18.2.0",
     "react-photoswipe-gallery": "^2.2.6",
+    "react-player": "^2.11.2",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "react-wordcloud": "^1.2.7",
