@@ -19,7 +19,7 @@ interface IPicturesService {
      * The resumes in the pair will be different
      * @param user The current user
      */
-    getPictures(): Promise<Picture[]>;
+    getPictures(collection: string): Promise<Picture[]>;
 
     /**
      * Updates the elo after a match
@@ -29,7 +29,8 @@ interface IPicturesService {
      */
     uploadPicture(
         path: string,
-        contentType: string
+        contentType: string,
+        collection: string
     ): Promise<string>;
 
 }

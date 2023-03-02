@@ -17,67 +17,46 @@ const multer_1 = __importDefault(require("multer"));
 const express_1 = require("express");
 const picturesService_1 = __importDefault(require("../services/impl/picturesService"));
 const http_status_codes_1 = require("http-status-codes");
+const constants_1 = require("../constants");
 const upload = (0, multer_1.default)({ dest: 'uploads/' });
 const picturesRouter = (0, express_1.Router)();
 const picturesService = new picturesService_1.default();
-// resumeRouter.get('/:fileName', validateToken, async (req, res) => {
-//     try {
-//         const { fileName } = req.params;
-//         const url = await resumeService.getResume(fileName);
-//         return res.status(StatusCodes.OK).json({ url });
-//     } catch (error: unknown) {
-//         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error });
-//     }
-// });
-picturesRouter.post('/', upload.single('file'), 
-// () => {},
-(req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    // try {
-    //     console.log(
-    //         "hello"
-    //     )
+const uploadHandler = (req, res, isPhoto) => __awaiter(void 0, void 0, void 0, function* () {
     if (!req.file) {
         throw Error('File not provided.');
     }
-    //     // if (req.file.size > MAX_FILE_SIZE_IN_BYTES) {
-    //     //     throw Error('File size must be less than 5 MB.');
-    //     // }
-    const url = yield picturesService.uploadPicture(req.file.path, req.file.mimetype);
+    let url;
+    if (isPhoto) {
+        url = yield picturesService.uploadPicture(req.file.path, req.file.mimetype, constants_1.PICTURES_COLLECTION);
+    }
+    else {
+        url = yield picturesService.uploadPicture(req.file.path, req.file.mimetype, constants_1.VIDEOS_COLLECTION);
+    }
     // Multer saves file to disk so we want to delete it there.
     fs_1.default.unlink(req.file.path, (err) => {
         if (err)
             throw err;
     });
+    const msg = isPhoto ? 'Photo successfully uploaded' : 'Video successfully uploaded';
     res.status(http_status_codes_1.StatusCodes.CREATED).json({
-        msg: 'File successfully uploaded.',
+        msg,
         url
     });
-    // } catch (error: unknown) {
-    //     if (req.file?.path) {
-    //         fs.unlink(req.file.path, () => {
-    //             // nothing
-    //         });
-    //     }
-    //     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error });
-    // }
-}));
+});
+picturesRouter.post('/', upload.single('file'), 
+// () => {},
+(req, res) => __awaiter(void 0, void 0, void 0, function* () { return yield uploadHandler(req, res, true); }));
+picturesRouter.post('/videos', upload.single('file'), (req, res) => __awaiter(void 0, void 0, void 0, function* () { return yield uploadHandler(req, res, false); }));
 picturesRouter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const pictures = yield picturesService.getPictures();
+    const pictures = yield picturesService.getPictures(constants_1.PICTURES_COLLECTION);
     res.status(http_status_codes_1.StatusCodes.OK).json({
         pictures
     });
 }));
-// resumeRouter.delete('/:fileName', validateToken, async (req, res) => {
-//     try {
-//         const { fileName } = req.params;
-//         const decodedToken = (req as any).decodedToken;
-//         const uid = decodedToken['uid'];
-//         await resumeService.deleteResume(uid, fileName);
-//         return res.status(StatusCodes.OK).json({
-//             msg: 'Resume successfully deleted.'
-//         });
-//     } catch (error: unknown) {
-//         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error });
-//     }
-// });
+picturesRouter.get('/videos', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const videos = yield picturesService.getPictures(constants_1.VIDEOS_COLLECTION);
+    res.status(http_status_codes_1.StatusCodes.OK).json({
+        videos
+    });
+}));
 exports.default = picturesRouter;

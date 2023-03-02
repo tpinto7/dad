@@ -12,11 +12,11 @@ import {
 const fileStorageService: IFileStorageService = new FileStorageService();
 
 class PicturesService implements IPicturesService {
-    async uploadPicture(path: string, contentType: string): Promise<string> {
+    async uploadPicture(path: string, contentType: string, collection: string): Promise<string> {
         const [pictureFileID, pictureUrl, dimension] =
         await fileStorageService.createFile(path, contentType);
 
-        db.collection(PICTURES_COLLECTION).add({
+        db.collection(collection).add({
             pictureUrl,
             creator: "Anonymous",
             comments: [],
@@ -24,8 +24,8 @@ class PicturesService implements IPicturesService {
         return pictureUrl;
     }
 
-    async getPictures(): Promise<Picture[]> { 
-        const picturesRef = await db.collection(PICTURES_COLLECTION).get();
+    async getPictures(collection: string): Promise<Picture[]> { 
+        const picturesRef = await db.collection(collection).get();
         const pictures : Picture[] = []; 
 
         picturesRef.forEach((picture: any) => {

@@ -1,8 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NAMES_COLLECTION = exports.MEMORIES_COLLECTION = exports.MESSAGES_COLLECTION = exports.PICTURES_COLLECTION = void 0;
+exports.NAMES_COLLECTION = exports.MEMORIES_COLLECTION = exports.MESSAGES_COLLECTION = exports.VIDEOS_COLLECTION = exports.PICTURES_COLLECTION = void 0;
 const PICTURES_COLLECTION = 'pictures';
 exports.PICTURES_COLLECTION = PICTURES_COLLECTION;
+const VIDEOS_COLLECTION = 'videos';
+exports.VIDEOS_COLLECTION = VIDEOS_COLLECTION;
 const MESSAGES_COLLECTION = 'messages';
 exports.MESSAGES_COLLECTION = MESSAGES_COLLECTION;
 const MEMORIES_COLLECTION = 'memories';

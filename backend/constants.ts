@@ -1,10 +1,13 @@
 const PICTURES_COLLECTION = 'pictures';
+const VIDEOS_COLLECTION = 'videos';
+
 const MESSAGES_COLLECTION = 'messages';
 const MEMORIES_COLLECTION = 'memories';
 const NAMES_COLLECTION = 'names';
 
 export { 
     PICTURES_COLLECTION,
+    VIDEOS_COLLECTION,
     MESSAGES_COLLECTION,
     MEMORIES_COLLECTION,
     NAMES_COLLECTION,

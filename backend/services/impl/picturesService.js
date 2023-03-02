@@ -15,14 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // import IResumeService from '../interfaces/resumeService';
 const fileStorageService_1 = __importDefault(require("./fileStorageService"));
 const firebase_1 = require("../../firebase");
-// import { FieldValue } from 'firebase-admin/firestore';
-const constants_1 = require("../../constants");
 const fileStorageService = new fileStorageService_1.default();
 class PicturesService {
-    uploadPicture(path, contentType) {
+    uploadPicture(path, contentType, collection) {
         return __awaiter(this, void 0, void 0, function* () {
             const [pictureFileID, pictureUrl, dimension] = yield fileStorageService.createFile(path, contentType);
-            firebase_1.db.collection(constants_1.PICTURES_COLLECTION).add({
+            firebase_1.db.collection(collection).add({
                 pictureUrl,
                 creator: "Anonymous",
                 comments: [],
@@ -30,9 +28,9 @@ class PicturesService {
             return pictureUrl;
         });
     }
-    getPictures() {
+    getPictures(collection) {
         return __awaiter(this, void 0, void 0, function* () {
-            const picturesRef = yield firebase_1.db.collection(constants_1.PICTURES_COLLECTION).get();
+            const picturesRef = yield firebase_1.db.collection(collection).get();
             const pictures = [];
             picturesRef.forEach((picture) => {
                 const pictureData = picture.data();
