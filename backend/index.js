@@ -10,7 +10,6 @@ const pictures_1 = __importDefault(require("./routes/pictures"));
 const messages_1 = __importDefault(require("./routes/messages"));
 const memories_1 = __importDefault(require("./routes/memories"));
 const names_1 = __importDefault(require("./routes/names"));
-// const messagesService: IMessagesService = new MessagesService();
 dotenv_1.default.config();
 const CORS_ALLOW_LIST = [
     'http://localhost:3000',

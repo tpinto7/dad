@@ -101,7 +101,7 @@ export const Photos: React.FC = () => {
 
     return <>
         <div className={classnames(css.photoHeader)} > 
-            Photo Gallery 
+            Photo Gallery
             <div className={classnames(css.uploadButton)}>
                 <Upload {...uploadProps}>
                 <Button icon={<UploadOutlined />}> Add Photo </Button>
@@ -115,7 +115,7 @@ export const Photos: React.FC = () => {
                     // width
                     return <Item width={700} height={800} original={buildUrl(image.pictureUrl)}>
                         {({ ref, open }) => (
-                        <img style={{cursor: 'pointer', objectFit: 'cover', height: 240, marginRight: 2, width: 'null'}} onLoad={(input) => onImageLoad(input, index)} ref={ref as React.MutableRefObject<HTMLImageElement>} onClick={open} src={buildUrl(image.pictureUrl)}/>
+                        <img style={{cursor: 'pointer', objectFit: 'cover', height: 240, marginRight: 2, width: 'null', border: '1px solid #ccc'}} onLoad={(input) => onImageLoad(input, index)} ref={ref as React.MutableRefObject<HTMLImageElement>} onClick={open} src={buildUrl(image.pictureUrl)}/>
                     )}
                     </Item>
                 })}

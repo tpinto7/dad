@@ -2,15 +2,10 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { Express, Request, Response } from 'express';
-import { request } from 'http';
-import { ReturnStatement } from 'typescript';
 import picturesRouter from './routes/pictures';
-import IMessagesService from './services/interfaces/messagesService';
-import MessagesService from './services/impl/messagesService';
 import messagesRouter from './routes/messages';
 import memoriesRouter from './routes/memories';
 import namesRouter from './routes/names';
-// const messagesService: IMessagesService = new MessagesService();
 
 dotenv.config();
 

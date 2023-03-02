@@ -1,3 +1,6 @@
+const ANONYMOUS = 'Anonymous';
+const DEFAULT_WORD_SIZE = 16;
+
 const PICTURES_COLLECTION = 'pictures';
 const VIDEOS_COLLECTION = 'videos';
 
@@ -6,6 +9,8 @@ const MEMORIES_COLLECTION = 'memories';
 const NAMES_COLLECTION = 'names';
 
 export { 
+    ANONYMOUS,
+    DEFAULT_WORD_SIZE,
     PICTURES_COLLECTION,
     VIDEOS_COLLECTION,
     MESSAGES_COLLECTION,

@@ -5,7 +5,6 @@ import {
     MESSAGES_COLLECTION,
 } from '../../constants';
 
-
 class MessagesService implements IMessagesService {
     async uploadMessage(message: string, creator: string): Promise<string> {
         db.collection(MESSAGES_COLLECTION).add({

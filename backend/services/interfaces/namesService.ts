@@ -5,10 +5,10 @@ export interface Name {
 
 interface INamesService {
     getNames(): Promise<Name[]>;
+    
     uploadName(
        name: Name
     ): Promise<Name | null>;
-
 }
 
 export default INamesService;

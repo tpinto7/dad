@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NAMES_COLLECTION = exports.MEMORIES_COLLECTION = exports.MESSAGES_COLLECTION = exports.VIDEOS_COLLECTION = exports.PICTURES_COLLECTION = void 0;
+exports.NAMES_COLLECTION = exports.MEMORIES_COLLECTION = exports.MESSAGES_COLLECTION = exports.VIDEOS_COLLECTION = exports.PICTURES_COLLECTION = exports.DEFAULT_WORD_SIZE = exports.ANONYMOUS = void 0;
+const ANONYMOUS = 'Anonymous';
+exports.ANONYMOUS = ANONYMOUS;
+const DEFAULT_WORD_SIZE = 16;
+exports.DEFAULT_WORD_SIZE = DEFAULT_WORD_SIZE;
 const PICTURES_COLLECTION = 'pictures';
 exports.PICTURES_COLLECTION = PICTURES_COLLECTION;
 const VIDEOS_COLLECTION = 'videos';

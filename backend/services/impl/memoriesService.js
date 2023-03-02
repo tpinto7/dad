@@ -10,7 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const firebase_1 = require("../../firebase");
-// import { FieldValue } from 'firebase-admin/firestore';
 const constants_1 = require("../../constants");
 class MemoriesService {
     uploadMemory(memory) {
