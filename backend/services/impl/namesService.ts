@@ -1,7 +1,7 @@
 import { db } from '../../firebase';
 
 import {
-     NAMES_COLLECTION
+    NAMES_COLLECTION
 } from '../../constants';
 import INamesService, { Name } from '../interfaces/namesService';
 

@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import INamesService from '../services/interfaces/namesService';
 import NamesService from '../services/impl/namesService';
-import { STATUS_CODES } from 'http';
+import { DEFAULT_WORD_SIZE } from '../constants';
 
 const namesRouter: Router = Router();
 
@@ -20,14 +20,14 @@ namesRouter.post(
            await namesService.uploadName(
                 {
                     name,
-                    value: value ?? 16
+                    value: value ?? DEFAULT_WORD_SIZE
                 }
             );
 
             res.status(StatusCodes.CREATED).json({
                 msg: 'name successfully uploaded.',
                 name,
-                value: value ?? 16
+                value: value ?? DEFAULT_WORD_SIZE
             });
         } catch (error: unknown) { 
             res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error });

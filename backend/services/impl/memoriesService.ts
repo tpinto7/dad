@@ -1,12 +1,9 @@
-// import IResumeService from '../interfaces/resumeService';
 import IMemoriesService, { Memory } from '../interfaces/memoriesService';
 import { db } from '../../firebase';
-// import { FieldValue } from 'firebase-admin/firestore';
 
 import {
     MEMORIES_COLLECTION
 } from '../../constants';
-
 
 class MemoriesService implements IMemoriesService {
     async uploadMemory(memory: Memory): Promise<Memory> {

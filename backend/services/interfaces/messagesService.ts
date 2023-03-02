@@ -5,11 +5,11 @@ export interface Message {
 
 interface IMessagesService {
     getMessages(): Promise<Message[]>;
+
     uploadMessage(
         message: string,
         creator: string
     ): Promise<string>;
-
 }
 
 export default IMessagesService;

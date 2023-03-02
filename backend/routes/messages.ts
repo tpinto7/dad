@@ -1,9 +1,8 @@
-import fs from 'fs';
-import multer from 'multer';
 import { Router } from 'express';
 import IMessagesService from '../services/interfaces/messagesService';
 import MessagesService from '../services/impl/messagesService';
 import { StatusCodes } from 'http-status-codes';
+import { ANONYMOUS } from '../constants';
 
 const messagesRouter: Router = Router();
 
@@ -19,7 +18,7 @@ messagesRouter.post(
             
             await messagesService.uploadMessage(
                 message, 
-                creator ?? "Anonymous",
+                creator ?? ANONYMOUS,
             );
 
             res.status(StatusCodes.CREATED).json({
